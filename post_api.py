@@ -1,13 +1,16 @@
 import requests
 
-url = "https://httpbin.org/post"
+try:
+    url = "https://httpbin.org/post"
 
-data = {
-    "name" : "Jai",
-    "age" : 19
-}
+    data = {
+        "name" : "Jai",
+        "age" : 19
+    }
 
-response = requests.post(url, json=data)
+    response = requests.post(url, json=data)
 
-print(response.status_code)
-print(response.json())
+    print(response.status_code)
+    print(response.json())
+except requests.exceptions.RequestException:
+     print("Network error. Please check your internet connection.")     

@@ -1,13 +1,16 @@
 import requests
 
-url = "https://httpbin.org/put"
+try:
+    url = "https://httpbin.org/put"
 
-data = {
-    "name" : "Jai",
-    "city" : "Mumbai"
-}
+    data = {
+        "name" : "Jai",
+        "city" : "Mumbai"
+    }
 
-response = requests.put(url, json=data)
+    response = requests.put(url, json=data)
 
-print(response.status_code)
-print(response.text)
+    print(response.status_code)
+    print(response.text)
+except requests.exceptions.RequestException:
+    print("Network error. Please check your internet connection.")     
